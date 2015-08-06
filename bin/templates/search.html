@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Movies: Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css" media="all" />
+	
+    
+    <script type="text/javascript">
+    	function updateFilter(){
+    		window.location.search = '?filter=' + document.getElementById('searchbox').value;
+    	}
+    	function keyPressed(e){
+    		if(e.keyCode==13){
+    			updateFilter();
+    		}
+    	}
+    	function viewProfile(){
+    		window.location = 'profile?userId=mossman';
+    	}
+    </script>
+    
+</head>
+<body>
+	<header>
+		<div>
+			<h1>Find a movie:</h1>
+			<input id='searchbox' type="text" onkeyup="keyPressed(event)"></input><button onclick="updateFilter()">Search</button>
+		</div>
+	</header>
+	<nav>
+		<div>
+			<ul>
+				<li class="selected">Search</li>
+				<li onclick="viewProfile()">My Profile</li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

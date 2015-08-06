@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Movies: Profile</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript">
+    	function viewDetails(title){
+    		window.location = '/details?title='+title;
+    	}
+    </script>
+</head>
+<body>
+	<h1 th:text="${fullname} + '\'s profile'" />
+	
+	<div class="two-column">
+		<ol class="display-list">
+			<li th:each="movie : ${watchedMovies}">
+				<div th:text="${movie}" th:onclick="'viewDetails(\'' + ${movie} + '\')'"></div>
+			</li>
+		</ol>
+		<ol class="display-list">
+			<li th:each="movie : ${moviesToWatch}">
+				<div th:text="${movie}" th:onclick="'viewDetails(\'' + ${movie} + '\')'"></div>
+			</li>
+		</ol>
+	</div>
+	
+</body>
+</html>

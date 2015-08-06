@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Movies: Search Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <script type="text/javascript">
+    	function viewDetails(title){
+    		window.location = '/details?title='+title;
+    	}
+    	function setWatched(title){
+    		var xmlhttp = new XMLHttpRequest();
+    		xmlhttp.open('GET','/setwatched?userId=mossman\u0026title='+title,true);
+    	    xmlhttp.send();
+    	}
+    	function setToWatch(title){
+    		var xmlhttp = new XMLHttpRequest();
+    		xmlhttp.open('GET','/settowatch?userId=mossman\u0026title='+title,true);
+    		xmlhttp.send();
+    	}
+    </script>
+    
+</head>
+<body>
+	<h1 th:text="'Search results for \'' + ${filter} + '\''"></h1>
+	<ol style="line-height:1.5;">
+		<li th:each="movie : ${results}">
+			<div th:text="${movie}" th:onclick="'viewDetails(\'' + ${movie} + '\')'"></div>
+			<button th:onclick="'setWatched(\'' + ${movie} + '\')'">Watched It!</button>
+			<button th:onclick="'setToWatch(\'' + ${movie} + '\')'">Want to Watch It!</button>
+		</li>
+	</ol>
+</body>
+</html>
