@@ -37,6 +37,7 @@ dependencies {
     compile 'org.json:json:20090211'
 	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	compile 'org.springframework.data:spring-data-rest-webmvc:2.3.2.RELEASE'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the

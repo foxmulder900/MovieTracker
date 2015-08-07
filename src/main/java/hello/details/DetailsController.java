@@ -8,16 +8,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import hello.utils.JSONRequest;
 
 @Controller
 public class DetailsController {
 
-    @RequestMapping("/details")
-    public String getDetails(@RequestParam(value="title", required=true) String title, Model model) throws JSONException, IOException{
+    @RequestMapping("/api/details/{title}")
+    public String getDetails(@PathVariable String title, Model model) throws JSONException, IOException{
 		String url = "http://www.omdbapi.com/?t="+URLEncoder.encode(title,"UTF-8");
 		JSONObject jsonObj = JSONRequest.getJSON(url);
 		

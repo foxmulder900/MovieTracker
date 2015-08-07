@@ -1,0 +1,14 @@
+<?xml version=<i>"1.0"</i> encoding=<i>"UTF-8"</i>?>
+ 
+<web-app xmlns:xsi=<i>"http://www.w3.org/2001/XMLSchema-instance"</i>
+ 
+xmlns=<i>"http://java.sun.com/xml/ns/javaee"</i>
+ 
+xsi:schemaLocation=<i><a href="http://java.sun.com/xml/ns/javaee%20http:/java.sun.com/xml/ns/javaee/web-app_3_0.xsd">http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd</a> </i>version=<i>"3.0"</i>>
+ 
+<error-page>
+	<error-code>404</error-code>
+	<location>/home</location>
+</error-page>
+ 
+</web-app>

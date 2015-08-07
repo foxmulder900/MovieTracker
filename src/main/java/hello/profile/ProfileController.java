@@ -3,6 +3,7 @@ package hello.profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,8 +17,8 @@ public class ProfileController {
 	@Autowired
 	private UserRepo users;
 	
-    @RequestMapping("/profile")
-    public String profile(@RequestParam(value="userId", required=true) String userId, Model model) {
+    @RequestMapping("/api/profile/{userId}")
+    public String profile(@PathVariable String userId, Model model) {
     	UserType user = users.findByUserId(userId);
         model.addAttribute("fullname", user.getFullName());
         model.addAttribute("watchedMovies", user.getWatchedList());
@@ -25,7 +26,7 @@ public class ProfileController {
         return "profile";
     }
     
-    @RequestMapping("/new-profile")
+    @RequestMapping("/api/new-profile")
     public String newProfile(
     		@RequestParam(value="userId", required=true) String userId,
     		@RequestParam(value="firstName", required=true) String firstName,

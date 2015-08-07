@@ -28,12 +28,8 @@ public class SearchController {
 	@Autowired
 	private UserRepo users;
 	
-    @RequestMapping("/search")
-    public String search(@RequestParam(value="filter", required=false) String filter, Model model) {
-        if(filter == null){
-        	return "search";
-        }
-        
+    @RequestMapping("/api/search")
+    public String search(@RequestParam(value="filter", required=true) String filter, Model model) {
         List<String> results;
 		try{
 			results = this.doSearch(filter);
